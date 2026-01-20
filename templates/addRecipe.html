@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Recipe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('view_recipes') }}">View Recipes</a>
+        <a href="{{ url_for('add_recipe') }}">Add Recipe</a>
+    </nav>
+
+    <h1 id="addH2">Add a New Recipe</h1>
+    <form method="POST" action="{{ url_for('add_recipe') }}">
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Description:</label><br>
+        <textarea name="description"></textarea><br><br>
+
+        <label>Servings:</label><br>
+        <input type="number" name="servings"><br><br>
+
+        <label>Calories:</label><br>
+        <input type="number" name="calories"><br><br>
+
+        <label>Ingredients:</label><br>
+        <textarea name="ingredients"></textarea><br><br>
+
+        <label>Instructions:</label><br>
+        <textarea name="instructions"></textarea><br><br>
+
+        <button type="submit">Add Recipe</button>
+    </form>
+</body>
+
+<footer>
+    <div class="footer-div"> 
+        <h2>RECIPECO</h2> 
+        <img src="static/logo.png" alt="Logo"> 
+    </div>
+</footer>
+
+</html>

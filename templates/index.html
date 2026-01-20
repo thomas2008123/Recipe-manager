@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('view_recipes') }}">View Recipes</a>
+        <a href="{{ url_for('add_recipe') }}">Add Recipe</a>
+    </nav>
+
+<div class="home-container">
+    <div class="home-card">
+        <h1 >Your kitchen simplified</h1>
+        <h2>Unlock a world of flavours and unleash your inner chef, transforming ordinary ingredients into extraordinary dishes with ease</h2>
+    </div>
+
+    <button class="homeButton"><a href="{{ url_for('view_recipes') }}">View Recipes</a></button>
+</div>
+
+</body>
+
+<footer>
+    <div class="footer-div"> 
+        <h2>RECIPECO</h2> 
+        <img src="static/logo.png" alt="Logo"> 
+    </div>
+</footer>
+</html>

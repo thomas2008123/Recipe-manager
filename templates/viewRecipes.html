@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('view_recipes') }}">View Recipes</a>
+        <a href="{{ url_for('add_recipe') }}">Add Recipe</a>
+    </nav>
+    <form method="POST">
+        <label for="recipeSearch">Search Recipes:</label>
+        <input type="text" name="recipeSearch" placeholder="Search" required>
+        <button type="submit" value="search" name="action">Search</button>
+        <button type="submit" value="showAll" name="action" formnovalidate>Show All</button>
+    </form>
+    <div class="container">
+        <h1>Recipes</h1>
+        {% if recipes %}
+            <div class="recipesGrid">
+                {% for recipe in recipes %}
+                    <div class="card">
+                        <h2>{{ recipe['name'] }}</h2>
+                        <p>{{ recipe['description'] }}</p>
+                        <p><strong>Servings:</strong> {{ recipe['servings'] }}, <strong>Calories:</strong> {{ recipe['calories'] }}</p>
+                        <p><strong>Ingredients:</strong> {{ recipe['ingredients'] }}</p>
+                        <p><strong>Instructions:</strong> {{ recipe['instructions'] }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No recipes found.</p>
+        {% endif %}
+    </div>
+</body>
+
+<footer>
+    <div class="footer-div"> 
+        <h2>RECIPECO</h2> 
+        <img src="static/logo.png" alt="Logo"> 
+    </div>
+</footer>
+
+</html>
